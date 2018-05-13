@@ -57,3 +57,5 @@ gem 'devise' #https://github.com/plataformatec/devise
 
 gem 'bootstrap-sass', '~> 3.3.7' #https://github.com/twbs/bootstrap-sass
 gem 'jquery-rails' ##https://github.com/twbs/bootstrap-sass
+
+gem "paperclip", "~> 6.0.0" #https://github.com/thoughtbot/paperclip
