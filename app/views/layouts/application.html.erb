@@ -3,82 +3,105 @@
   <head>
     <title>Instagramark</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      body {
+        padding-top: 54px;
+        background-color: #e2d1c3;
+      }
+      @media (min-width: 992px) {
+        body {
+          padding-top: 56px;
+        }
+      }
+      
+      #post figure {
+        width: 620px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+        background-color: cornsilk;
+        margin-bottom: 50px;
+        border-radius: 3px;
+      }
+
+      #post figcaption {
+        padding: 10px;
+      }
+
+      #post img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      #btn-theme .btn:hover {
+        background-color: #635346 !important; 
+        border-color: #635346;
+      }
+
+      .navbar {
+        background-color: #635346;
+
+      }
+
+      #form .panel {
+        width: 30rem;
+        background-color: cornsilk;
+        padding: 30px;
+        border-radius: 3px;
+        margin: auto;
+      }
+
+
+    </style>
   </head>
 
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- <a class="navbar-brand" href="#">Start Bootstrap</a> -->
-                <%= link_to "Instagramark", root_url, class: "navbar-brand" %>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <!-- <a href="#">About</a> -->
-                        <%= link_to "New Post", new_post_path %>
-                    </li>
-                    <%- if current_user %>
-                    <li>
-                      <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %>
-                    </li>
-                    <% else %>
-                    <li>
-                      <%= link_to "Login", new_user_session_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Register", new_user_registration_path %>
-                    </li>
-                    <% end %>
-                    <!-- <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li> -->
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <!-- <a class="navbar-brand" href="#">Start Bootstrap</a> -->
+        <%= link_to "Instagramark", root_url, class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <%- if current_user %>
+            <li class="nav-item active">
+              <%= link_to "New Post", new_post_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }, class: "nav-link"%>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
+            </li>
+            <% end %>
+          </ul>
         </div>
-        <!-- /.container -->
+      </div>
     </nav>
 
     <!-- Page Content -->
     <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <p class="notice"><%= notice %></p>
-                <p class="alert"><%= alert %></p>
-                <%= yield %>
-            </div>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <!-- h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
+          <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
+          <ul class="list-unstyled">
+            <li>Bootstrap 4.1.1</li>
+            <li>jQuery 3.3.1</li>
+          </ul> -->
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <%= yield %>
         </div>
-        <!-- /.row -->
-
+      </div>
     </div>
-    <style>
-    body {
-        padding-top: 70px;
-        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-        background-color: aquamarine;
-    }
-    img {
-      height: 300px;
-      width: 500px;
-    }
-    </style>
- </body>
+   
+  </body>
 </html>
+    
