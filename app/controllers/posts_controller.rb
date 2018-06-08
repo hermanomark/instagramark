@@ -1,14 +1,17 @@
 class PostsController < ApplicationController
-  def new
-    @post = Post.new
-  end
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @posts = Post.all
   end
 
+  def new
+    @post = Post.new
+  end
+
   def show
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
   end
 
   def create
@@ -22,9 +25,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post.destroy
+    redirect_to root_url
+  end
+
   private 
 
     def permit_post 
       params.require(:post).permit(:image, :description)
+    end
+
+    def find_post
+      @post = Post.find(params[:id])
     end
 end

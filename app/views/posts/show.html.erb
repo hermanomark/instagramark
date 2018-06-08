@@ -3,3 +3,4 @@
 <%= @post.description %>
 <br>
 <%= image_tag(@post.image.url(:medium)) %>
+<%= link_to "Delete", post_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
