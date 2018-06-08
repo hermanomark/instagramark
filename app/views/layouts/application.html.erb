@@ -16,18 +16,19 @@
         }
       }
       
-      figure {
+      #post figure {
         width: 620px;
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
         background-color: cornsilk;
         margin-bottom: 50px;
+        border-radius: 3px;
       }
 
-      figcaption {
+      #post figcaption {
         padding: 10px;
       }
 
-      img {
+       img {
         max-width: 100%;
         height: auto;
       }
@@ -35,6 +36,17 @@
       .navbar {
         background-color: #635346;
 
+      }
+
+      #form .panel {
+        width: 30rem;
+        background-color: cornsilk;
+        padding: 30px;
+        border-radius: 3px;
+      }
+
+      #form .panel-body {
+        padding-bottom: 20px;
       }
 
     </style>
@@ -59,7 +71,7 @@
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+              <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
