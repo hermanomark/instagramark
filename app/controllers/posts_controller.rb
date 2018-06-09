@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to root_url
+    redirect_to authenticated_root_url
   end
 
   private 
