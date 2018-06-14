@@ -1,5 +1,11 @@
-<!-- <h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p> -->
-<%= @post.description %>
-<br>
-<%= image_tag(@post.image.url(:medium)) %>
+<div id="post">
+  <figure class="figure">
+    <%= image_tag(@post.image.url) %>
+    <figcaption class="figure-caption text-left">
+      <%= @post.description %> 
+      <div id="btn-theme" class="float-right">
+        <%= link_to "X", post_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm", style: "border-radius:50%; height: auto; margin-bottom: 10px; background-color:#aa9888; color: cornsilk; border: 0px;" %>
+      </div>
+      </figcaption>
+  </figure>
+</div>

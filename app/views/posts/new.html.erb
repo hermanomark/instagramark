@@ -1,16 +1,26 @@
-<!-- <h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
- -->
- <h2>New Post</h2>
- <hr>
+<div id="form">
+  <div class="panel panel-default mx-auto text-left">
+    <div class="panel-heading">
+       <h2>Share photo</h2>
+    </div>
+    <div class="panel-body">
+      <%= form_for @post, html: { multipart: true } do |f| %>
+        <div class="form-group">
+          <%= f.label :image %>
+          <%= f.file_field :image, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description, value: "Caption" %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+        <div id="btn-theme">
+          <%= f.submit "Upload", class: "btn btn-outline-dark float-right" %>
+        </div>
+      <% end %>
+    </div><br>
+    <div class="panel-footer"> 
+    </div>
+  </div>
+</div>
 
- <%= form_for @post, html: { multipart: true } do |f| %>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-  <br>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <br>
-  <%= f.submit %>
 
-<% end %>
