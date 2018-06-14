@@ -1,24 +1,5 @@
-# README
+## Instagramark
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You can check the live app here: https://instagramark.herokuapp.com/
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The image has no online storage yet, but you can try to sign-up and upload images it works.
