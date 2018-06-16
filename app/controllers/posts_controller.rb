@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(permit_post)
     if @post.save
-      flash[:alert] = "Success!!!"
+      flash[:alert] = "Photo upload successful"
       redirect_to post_path(@post)
     else
       flash[:alert] = @post.errors.full.messages
