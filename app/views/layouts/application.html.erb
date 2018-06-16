@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Instagramark</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -51,7 +52,12 @@
         margin: auto;
       }
 
-
+      .flash {
+        background-color: #aa9888;
+        border-radius: 6px;
+        width: 30%;
+        text-align: center;
+      }
     </style>
   </head>
 
@@ -66,7 +72,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <%- if current_user %>
-            <li class="nav-item active">
+            <li class="nav-item">
+              <%= link_to "Home", authenticated_root_url, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
               <%= link_to "New Post", new_post_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
@@ -95,13 +104,25 @@
             <li>Bootstrap 4.1.1</li>
             <li>jQuery 3.3.1</li>
           </ul> -->
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+            <br>
+            <div class="flash mx-auto">
+              <% flash.each do |key, value| %>
+                <div class="alert alert-<%= key %> alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong><%= value %></strong> 
+                </div>
+              <% end %>
+          </div>
           <%= yield %>
         </div>
       </div>
     </div>
    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
     
