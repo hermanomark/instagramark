@@ -17,3 +17,62 @@
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables" */
 
 @import "bootstrap";
+
+body {
+  padding-top: 54px;
+  background-color: #e2d1c3;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+#post figure {
+  width: 620px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  background-color: cornsilk;
+  margin-bottom: 50px;
+  border-radius: 3px;
+}
+
+#post figcaption {
+  padding: 10px;
+}
+
+#post img {
+  max-width: 100%;
+  height: auto;
+}
+
+#btn-theme .btn:hover {
+  background-color: #635346 !important; 
+  border-color: #635346;
+}
+
+.navbar {
+  background-color: #635346;
+
+}
+
+#form .panel {
+  width: 30rem;
+  background-color: cornsilk;
+  padding: 30px;
+  border-radius: 3px;
+  margin: auto;
+}
+
+.flash {
+  background-color: #aa9888;
+  border-radius: 6px;
+  width: 30%;
+  text-align: center;
+}
+
+.card {
+  width: 30rem;
+  padding: 14px;
+  margin-bottom: 18px;
+}
