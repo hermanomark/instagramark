@@ -6,16 +6,37 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%- if user_signed_in? && current_user %>
+              <%= link_to "New Post", new_post_path, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+            <% end %>
+              <%= link_to "Find People", users_path, class: "dropdown-item" %>
+          </div>
+        </li>
+    </ul>
+
       <ul class="navbar-nav ml-auto">
-        <%- if current_user %>
+        <%- if user_signed_in? && current_user %>
+        <li class="nav-item">
+          <%= link_to "Profile", user_path(current_user), class: "nav-link" %>
+        </li>
         <li class="nav-item">
           <%= link_to "Home", authenticated_root_url, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "New Post", new_post_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }, class: "nav-link"%>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item"%>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }, class: "dropdown-item"%>
+          </div>
         </li>
         <% else %>
         <li class="nav-item">

@@ -1,5 +1,18 @@
-<ul>
+<h1 align="center">People</h1>
+<div class="center">
   <% @users.each do |user| %>
-    <li><%= user.email %></li>
+    <ul class="listing">
+      <div class="row">
+        <div class="card card-body bg-transparent">
+          <li><%= link_to gravatar_for(user), user_path(user), size: 300 %></li>
+          <li class="article-title">
+            <%= link_to user.email, user_path(user) %>
+          </li>
+          <!-- we want pluralize if the user has article/articles, and don't display if none -->
+          <li><small><%= pluralize(user.posts.count, "photo") if user.posts %></small></li>
+          <!-- delete user here not yet made the admin -->
+        </div>
+      </div>
+    </ul>
   <% end %>
-</ul>
+</div>

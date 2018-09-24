@@ -77,3 +77,26 @@ body {
   margin-bottom: 18px;
   text-align: left;
 }
+
+/*fix for gravatar image size bcoming oval for not squared images*/
+/*make sure to also set size of gravatar double times the width and height so it won't become pixelated*/
+.img-circle {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  /*border: 3px solid black;*/
+}
+
+.listing {
+  list-style: none;
+  padding-left: 0;
+}
+
+.listing .card {
+  border: 0;
+  width: 30rem;
+}
+
+.dropdown-item:hover {
+  background-color: #635346;
+}
