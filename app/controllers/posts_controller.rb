@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :require_same_user, only: [:destroy]
 
   def index
     @posts = Post.all
@@ -11,17 +12,16 @@ class PostsController < ApplicationController
   end
 
   def show
-    # @post = Post.find(params[:id])
   end
 
   def create
-    @post = Post.new(permit_post)
+    @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
-      flash[:alert] = "Photo upload successful"
+      flash[:success] = "Photo upload successful"
       redirect_to post_path(@post)
     else
-      flash[:alert] = @post.errors.full.messages
-      redirect_to new_post_path
+      render 'new'
     end
   end
 
@@ -32,11 +32,18 @@ class PostsController < ApplicationController
 
   private 
 
-    def permit_post 
+    def post_params 
       params.require(:post).permit(:image, :description)
     end
 
     def find_post
       @post = Post.find(params[:id])
+    end
+
+    def require_same_user
+      if current_user != @post.user
+        flash[:danger] = "You can only delete your own photo"
+        redirect_to authenticated_root_url
+      end
     end
 end
