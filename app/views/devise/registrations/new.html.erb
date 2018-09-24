@@ -1,14 +1,4 @@
-<% if @user.errors.any? %>
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 mx-auto">
-      <div class="card bg-danger">
-        <div class="card-body text-left">
-          <%= devise_error_messages! %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= render 'layouts/error_messages', obj: @user %>
   
 <div id="form">
   <div class="panel panel-default mx-auto text-left">
@@ -45,7 +35,7 @@
     <br>
     <br>
     <hr>
-    
+
     <div class="panel-footer">
       <%- if controller_name != 'sessions' %>
         <span>Have an account?</span> <%= link_to "Log in", new_session_path(resource_name) %><br />

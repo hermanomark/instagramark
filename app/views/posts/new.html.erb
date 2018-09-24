@@ -1,25 +1,4 @@
-<% if @post.errors.any? %>
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 mx-auto">
-      <div class="card bg-danger">
-        <div class="card-heading">
-          <h3 class="card-title">
-            <!-- pluralize the error -->
-            <%= pluralize(@post.errors.count, "error") %>
-            prohibited this photo from being uploaded:
-          </h3>
-        </div>
-        <div class="card-body">
-          <ul>
-            <% @post.errors.full_messages.each do |msg| %>
-              <li class="text-left"><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= render 'layouts/error_messages', obj: @post %>
 
 <div class="row">
   <div class="col-xs-12 mx-auto">
