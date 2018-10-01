@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20181001033918) do
 
   create_table "follows", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "follower_id"
+    t.bigint "following_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["follower_id"], name: "index_follows_on_follower_id"
+    t.index ["following_id"], name: "index_follows_on_following_id"
     t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
