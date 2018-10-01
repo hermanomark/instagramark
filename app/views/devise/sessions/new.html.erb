@@ -1,3 +1,4 @@
+
 <div id="form">
   <div class="panel panel-default mx-auto text-left">
     <div class="panel-heading">
@@ -6,8 +7,8 @@
     <div class="panel-body">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, class: "form-control" %>
+        <%= f.label "Username/Email" %><br />
+        <%= f.text_field :login, autofocus: true, autocomplete: "on", required: true, class: "form-control" %>
       </div>
 
       <div class="form-group">
