@@ -17,6 +17,7 @@
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables" */
 
 @import "bootstrap";
+@import "font-awesome";
 
 body {
   padding-top: 54px;
@@ -53,7 +54,11 @@ body {
 
 .navbar {
   background-color: #635346;
+}
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
 }
 
 #form .panel {

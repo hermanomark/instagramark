@@ -60,4 +60,6 @@ gem 'jquery-rails' #https://github.com/twbs/bootstrap-sass
 
 gem "paperclip", "~> 6.0.0" #https://github.com/thoughtbot/paperclip
 
-gem 'bootstrap', '~> 4.1.1' #https://github.com/twbs/bootstrap 
+gem 'bootstrap', '~> 4.1.1' #https://github.com/twbs/bootstrap
+
+gem "font-awesome-rails" #https://github.com/bokmann/font-awesome-rails
