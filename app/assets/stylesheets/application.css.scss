@@ -22,11 +22,13 @@
 body {
   padding-top: 54px;
   background-color: #e2d1c3;
+  overflow-x: hidden;
 }
 
 @media (min-width: 992px) {
   body {
     padding-top: 56px;
+    overflow-x: hidden;
   }
 }
 
