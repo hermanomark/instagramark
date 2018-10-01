@@ -4,7 +4,7 @@
     <ul class="listing">
       <div class="row">
         <div class="card card-body bg-transparent">
-          <li><%= link_to gravatar_for(user), user_path(user), size: 300 %></li>
+          <li><%= link_to gravatar_for(user, 300, "img-circle-link"), user_path(user), size: 300 %></li>
           <li class="article-title">
             <%= link_to user.email, user_path(user) %>
           </li>

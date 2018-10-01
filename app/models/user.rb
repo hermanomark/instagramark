@@ -11,13 +11,12 @@ class User < ApplicationRecord
          # Tell Devise to use :login in the authentication_keys
          :authentication_keys => [:login]
 
-  # validation for username
+  # add validation to check format of username to not allow @ character
+  VALID_USERNAME_REGEX = /\A[a-zA-Z0-9_\.]*\z/
   validates :username, presence: true, 
             uniqueness: { case_sensitive: false }, 
-            length: { minimum: 3, maximum: 25 }
-
-  # add validation to check format of username to not allow @ character
-  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+            length: { minimum: 3, maximum: 25 },
+            format: { with: VALID_USERNAME_REGEX }
 
   # to even more secure for the validation above
   validate :validate_username
@@ -42,5 +41,36 @@ class User < ApplicationRecord
     elsif conditions.has_key?(:username) || conditions.has_key?(:email)
       where(conditions.to_h).first
     end
+  end
+
+  # methods for searching user
+  def self.search(param)
+    param.strip!
+    param.downcase!
+    to_send_back = (username_matches(param) + email_matches(param)).uniq
+    return nil unless to_send_back
+    to_send_back
+  end
+
+  def self.username_matches(param)
+    matches('username', param)
+  end
+
+  def self.email_matches(param)
+    matches('email', param)
+  end
+
+  def self.matches(field_name, param)
+    User.where("#{field_name} like?", "%#{param}%")
+  end
+
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id }
+  end
+
+  # use this now in _result.html.erb
+  # prevent to add already friends
+  def not_following_with?(following_id)
+    follows.where(following_id: following_id).count < 1
   end
 end

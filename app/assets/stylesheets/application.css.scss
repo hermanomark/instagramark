@@ -69,6 +69,20 @@ body {
   padding: 30px;
   border-radius: 3px;
   margin: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+.list-group {
+  width: 30rem;
+  background-color: cornsilk;
+  padding: 30px;
+  border-radius: 3px;
+  margin: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+.list-group-item {
+  background-color: cornsilk;
 }
 
 .flash {
@@ -91,7 +105,12 @@ body {
   border-radius: 50%;
   width: 150px;
   height: 150px;
-  /*border: 3px solid black;*/
+}
+
+.img-circle-link {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
 
 .listing {
@@ -106,4 +125,13 @@ body {
 
 .dropdown-item:hover {
   background-color: #635346;
+}
+
+.my-search {
+  width: 30rem;
+  background-color: cornsilk;
+  padding: 30px;
+  border-radius: 3px;
+  margin: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
 }

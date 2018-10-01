@@ -3,11 +3,10 @@
     <div class="row">
       <figure class="figure mx-auto">
         <!-- <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."> -->
-
         <%= link_to (image_tag post.image.url), post, class: "figure-img img-fluid rounded" %>
         <figcaption class="figure-caption text-left">
             <p><%= post.description %></p> 
-            <small>Uploaded by: <%= post.user.email if post.user %>,
+            <small>Uploaded by: <%= post.user.username ? post.user.username : post.user.email %>,
                           <%= time_ago_in_words(post.created_at) %> ago,
                           last updated: <%= time_ago_in_words(post.updated_at) %> ago </small>
             <% if user_signed_in? && current_user == post.user %>

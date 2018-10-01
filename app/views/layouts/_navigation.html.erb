@@ -16,7 +16,7 @@
               <%= link_to "New Post", new_post_path, class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
             <% end %>
-              <%= link_to "Find People", users_path, class: "dropdown-item" %>
+              <%= link_to "<i class='fa fa-search'></i> &nbsp; Find People".html_safe, find_people_path, class: "dropdown-item" %>
           </div>
         </li>
     </ul>
@@ -24,7 +24,10 @@
       <ul class="navbar-nav ml-auto">
         <%- if user_signed_in? && current_user %>
         <li class="nav-item">
-          <%= link_to "Profile", user_path(current_user), class: "nav-link" %>
+          <%= link_to "<i class='fa fa-user' style='font-size:24px'></i>".html_safe, user_path(current_user), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Following", following_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Home", authenticated_root_url, class: "nav-link" %>

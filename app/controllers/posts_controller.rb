@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      flash[:success] = "Photo upload successful"
+      flash[:success] = "Photo successfully uploaded"
       redirect_to post_path(@post)
     else
       render 'new'
@@ -27,6 +27,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
+    flash[:success] = "Photo successfully deleted"
     redirect_to authenticated_root_url
   end
 

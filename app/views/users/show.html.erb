@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col-xs-6 ml-auto">
-    <%= gravatar_for @user, size: 150 %>
+    <%= gravatar_for @user, 300, "img-circle" %>
   </div>
   <div class="col-xs-6 mr-auto">
-    <h2><%= @user.email %></h2>
+    <h2><%= @user.username ? @user.username : @user.email %></h2>
   </div>
 </div>
 
 <hr>
 
-<h6 align="center"><%= @user.email %>'s posts</h6>
+<h6 align="center"><%= @user.username ? @user.username : @user.email %>'s posts</h6>
 
 <div id="post">
   <% @user.posts.each do |post| %>
