@@ -68,8 +68,12 @@ class User < ApplicationRecord
     users.reject { |user| user.id == self.id }
   end
 
+  def not_follow_myself(user)
+    user.id != self.id
+  end
+
   # use this now in _result.html.erb
-  # prevent to add already friends
+  # prevent to add already following
   def not_following_with?(following_id)
     follows.where(following_id: following_id).count < 1
   end

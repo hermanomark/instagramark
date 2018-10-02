@@ -1,28 +1,31 @@
-<div class="row">
-  <div class="col-xs-6 ml-auto">
-    <%= gravatar_for @user, 300, "img-circle" %>
-  </div>
-  <div class="col-xs-6 mr-auto">
-    <h2><%= @user.username ? @user.username : @user.email %></h2>
+<div class ="container my-profile">
+  <div class="row">
+    <div class="col-sm-6" align="right">
+      <%= gravatar_for @user, 300, "img-circle" %>
+    </div>
+    <div class="col-sm-6" align="left">
+      <h2><%= @user.username ? @user.username : @user.email %></h2>
+      <% if user_signed_in? && current_user.not_follow_myself(@user) %>
+        <% if current_user.not_following_with?(@user.id) %>
+          <%= link_to "Follow", follow_user_path(user: current_user, following: @user), class: "btn btn-sm btn-success", method: :post %>
+        <% else %>
+          <%= link_to "Unfollow", follow_path(@user), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-sm btn-danger" %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
-<hr>
-
 <h6 align="center"><%= @user.username ? @user.username : @user.email %>'s posts</h6>
 
-<div id="post">
-  <% @user.posts.each do |post| %>
+<div id="post-profile" class="container">
     <div class="row">
+    <% @user.posts.each do |post| %>
       <figure class="figure mx-auto">
-        <!-- <img src="..." class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure."> -->
-
         <%= link_to (image_tag post.image.url), post, class: "figure-img img-fluid rounded" %>
         <figcaption class="figure-caption text-left">
-            <p><%= post.description %></p> 
-            <small>Uploaded by: <%= post.user.email if post.user %>,
-                          <%= time_ago_in_words(post.created_at) %> ago,
-                          last updated: <%= time_ago_in_words(post.updated_at) %> ago </small>
+            <p><%= post.description %></p>
+            <small><%= link_to post.user.username ? post.user.username : post.user.email, user_path(post.user) %>, <%= time_ago_in_words(post.created_at) %> ago</small>
             <% if user_signed_in? && current_user == post.user %>
               <div id="btn-theme" class="float-right">
                 <%= link_to "X", post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm", style: "border-radius:50%; height: auto; margin-bottom: 10px; background-color:#aa9888; color: cornsilk; border: 0px;" %>
@@ -30,6 +33,6 @@
             <% end %>
         </figcaption>
       </figure>
+    <% end %> 
     </div>
-   <% end %> 
 </div>

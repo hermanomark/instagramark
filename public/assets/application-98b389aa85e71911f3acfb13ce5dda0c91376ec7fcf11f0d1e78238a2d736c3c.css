@@ -14176,23 +14176,44 @@ body {
 }
 
 /* line 53, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+#post-profile figure {
+  width: 320px;
+  height: 10%;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  background-color: cornsilk;
+  margin-bottom: 50px;
+  border-radius: 3px;
+}
+
+/* line 62, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+#post-profile figcaption {
+  padding: 10px;
+}
+
+/* line 66, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+#post-profile img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 71, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 #btn-theme .btn:hover {
   background-color: #635346 !important;
   border-color: #635346;
 }
 
-/* line 58, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 76, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 .navbar {
   background-color: #635346;
 }
 
-/* line 62, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 80, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 .navbar-brand {
   display: flex;
   align-items: center;
 }
 
-/* line 67, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 85, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 #form .panel {
   width: 30rem;
   background-color: cornsilk;
@@ -14202,7 +14223,7 @@ body {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
 }
 
-/* line 76, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 94, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 .list-group {
   width: 30rem;
   background-color: cornsilk;
@@ -14212,12 +14233,12 @@ body {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
 }
 
-/* line 85, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 103, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 .list-group-item {
   background-color: cornsilk;
 }
 
-/* line 89, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 107, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 .flash {
   background-color: #aa9888;
   border-radius: 6px;
@@ -14225,7 +14246,7 @@ body {
   text-align: center;
 }
 
-/* line 96, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 114, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 #form-error .alert {
   width: 30rem;
   padding: 14px;
@@ -14235,38 +14256,38 @@ body {
 
 /*fix for gravatar image size bcoming oval for not squared images*/
 /*make sure to also set size of gravatar double times the width and height so it won't become pixelated*/
-/* line 105, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 123, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 .img-circle {
   border-radius: 50%;
   width: 150px;
   height: 150px;
 }
 
-/* line 111, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 129, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 .img-circle-link {
   border-radius: 50%;
   width: 40px;
   height: 40px;
 }
 
-/* line 117, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 135, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 .listing {
   list-style: none;
   padding-left: 0;
 }
 
-/* line 122, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 140, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 .listing .card {
   border: 0;
   width: 30rem;
 }
 
-/* line 127, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 145, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 .dropdown-item:hover {
   background-color: #635346;
 }
 
-/* line 131, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+/* line 149, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
 .my-search {
   width: 30rem;
   background-color: cornsilk;
@@ -14274,4 +14295,41 @@ body {
   border-radius: 3px;
   margin: auto;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+/* line 158, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+.my-profile {
+  padding-bottom: 60px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+/* line 164, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  color: #777;
+}
+
+/* line 171, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+footer a:hover {
+  color: #222;
+}
+
+/* line 175, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+footer small {
+  float: left;
+}
+
+/* line 179, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+/* line 184, /home/hermanomark/Desktop/instagramark/app/assets/stylesheets/application.css.scss */
+footer ul li {
+  float: left;
+  margin-left: 15px;
 }

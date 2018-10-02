@@ -1,12 +1,16 @@
 <div class="my-search">
-  <h2>Find People</h2>
-  <div id="user-lookup">
+  <div id="user-lookup" align="left">
     <%= form_tag search_users_path, remote: true, method: :get, id: "user-lookup-form" do %>
-      <div class="form-group row no-padding text-center col-md-12">
-        <div class="col-md-10">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>Find People</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-9">
           <%= text_field_tag :search_param, params[:search_param], placeholder: "Enter username or email", autofocus: true, class: "form-control search-box input-lg" %>
         </div>
-        <div class="col-md-2">
+        <div class="col-sm-3">
           <%= button_tag(type: :submit, class: "btn btn-sm btn-success") do %>
             <i class="fa fa-search"></i> Search
           <% end %>

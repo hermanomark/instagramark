@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     else
       flash[:danger] = "There was something wrong on following the user, please update your username"
     end
-    redirect_to following_path
+    redirect_to user_path(@following)
   end
 
   def find_people

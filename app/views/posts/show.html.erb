@@ -3,9 +3,7 @@
     <%= image_tag(@post.image.url) %>
     <figcaption class="figure-caption text-left">
       <p><%= @post.description %></p> 
-      <small>Uploaded by: <%= @post.user.username ? @post.user.username : @post.user.email %>,
-                    <%= time_ago_in_words(@post.created_at) %> ago,
-                    last updated: <%= time_ago_in_words(@post.updated_at) %> ago </small>
+      <small><%= link_to @post.user.username ? @post.user.username : @post.user.email, user_path(@post.user) %>, <%= time_ago_in_words(@post.created_at) %> ago</small>
       <% if user_signed_in? && current_user == @post.user %>
         <div id="btn-theme" class="float-right">
           <%= link_to "X", post_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm", style: "border-radius:50%; height: auto; margin-bottom: 10px; background-color:#aa9888; color: cornsilk; border: 0px;" %>
